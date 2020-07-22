@@ -1,0 +1,13 @@
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\bin\Debug\netcoreapp3.1\OOPDay1.exe
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\bin\Debug\netcoreapp3.1\OOPDay1.deps.json
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\bin\Debug\netcoreapp3.1\OOPDay1.runtimeconfig.json
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\bin\Debug\netcoreapp3.1\OOPDay1.runtimeconfig.dev.json
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\bin\Debug\netcoreapp3.1\OOPDay1.dll
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\bin\Debug\netcoreapp3.1\OOPDay1.pdb
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\obj\Debug\netcoreapp3.1\OOPDay1.csprojAssemblyReference.cache
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\obj\Debug\netcoreapp3.1\OOPDay1.AssemblyInfoInputs.cache
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\obj\Debug\netcoreapp3.1\OOPDay1.AssemblyInfo.cs
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\obj\Debug\netcoreapp3.1\OOPDay1.csproj.CoreCompileInputs.cache
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\obj\Debug\netcoreapp3.1\OOPDay1.dll
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\obj\Debug\netcoreapp3.1\OOPDay1.pdb
+C:\DevBuild4\GrandCircus\OOP\OOPDay1\obj\Debug\netcoreapp3.1\OOPDay1.genruntimeconfig.cache
