@@ -317,6 +317,7 @@ namespace OOPDay1
                         }
                         break;
                 }
+                Console.Clear();
             } while (!win || player1.Gold > 0);
 
             secretcard.FlipCard();
@@ -381,8 +382,8 @@ namespace OOPDay1
         static void GuessSuit(Card secretcard, Player activeplayer, int cost)
         {
             activeplayer.Gold = activeplayer.Gold - cost;
-            Console.WriteLine("A hint about the Suit a card can be Diamons, Clubs, Heartsor Spades guess a suit and I will tell you if a card is that Suit");
-            Console.Write("Diamons, Clubs, Hearts or Spades: ");
+            Console.WriteLine("Diamonds\nClubs\nHearts\nSpades");
+            Console.Write("Guess a suit and I will tell you if a card is that Suit: ");
             string suitguess = Console.ReadLine();
             if (secretcard.GuessSuit(suitguess))
             {
