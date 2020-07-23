@@ -277,8 +277,8 @@ namespace OOPDay1
         static void PlayGame(Player player1, Card secretcard)
         {
             const int colorGuessCost = 20;
-            const int suitGuessCost = 15;
-            const int valueGuessCost = 8;
+            const int suitGuessCost = 11;
+            const int valueGuessCost = 7;
             bool win = false;
             do
             {
@@ -290,22 +290,28 @@ namespace OOPDay1
                 switch (choice)
                 {
                     case "C":
+                        Console.Clear();
                         GuessColor(secretcard, player1, colorGuessCost);
                         break;
                     case "S":
+                        Console.Clear();
                         GuessSuit(secretcard, player1, suitGuessCost);
                         break;
                     case "V":
+                        Console.Clear();
                         GuessValue(secretcard, player1, valueGuessCost);
                         break;
                     case "G":
+                        Console.Clear();
                         win = GuessCard(secretcard);
                         if (win)
                         {
+                            Console.WriteLine("You won, Doubling your gold as promised");
                             player1.Gold = player1.Gold * 2;
                         }
                         else
                         {
+                            Console.WriteLine("That is not the Card!");
                             if(player1.Gold > 33)
                             {
                                 player1.Gold = player1.Gold / 2;
@@ -316,9 +322,20 @@ namespace OOPDay1
                             }
                         }
                         break;
+                    default:
+                        {
+                            Console.WriteLine("Your talking gibberish that is not a choice...\n I am taking 2g from you for wasting my time");
+                            player1.Gold = player1.Gold - 2;
+                            break;
+                        }
                 }
-                Console.Clear();
-            } while (!win || player1.Gold > 0);
+                Console.WriteLine(win);
+            } while (!win && player1.Gold > 0);
+            
+            if (player1.Gold <= 0)
+            {
+                Console.WriteLine("Seems like you have run out of gold; Without that you can no longer play...");
+            }
 
             secretcard.FlipCard();
             secretcard.DisplayCard();
@@ -407,11 +424,11 @@ namespace OOPDay1
         static void GuessValue(Card secretcard, Player activeplayer, int cost)
         {
             activeplayer.Gold = activeplayer.Gold - cost;
-            Console.WriteLine("A hint about the Value of the card a card Can be A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K guess a value and I will tell you higher or lower");
-            Console.Write("A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K: ");
+            Console.WriteLine("A hint about the Value of the card... \nA card Can be A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K");
+            Console.Write("Guess a value and I will tell you higher or lower: ");
             string valueguess = Console.ReadLine();
             int num = ConvertGuessToValue(valueguess);
-            CompareGuessToValue(num, secretcard);
+            CompareGuessToValue(num, secretcard, valueguess);
         }
 
         static int ConvertGuessToValue(string guess)
@@ -445,19 +462,19 @@ namespace OOPDay1
             return num;
         }
 
-        static void CompareGuessToValue(int guess, Card secretcard)
+        static void CompareGuessToValue(int guess, Card secretcard, string userguess)
         {
             if (guess > secretcard.Value)
             {
-                Console.WriteLine($"The Card is less than {guess}");
+                Console.WriteLine($"The Card is less than {userguess}");
             }
             else if (guess == secretcard.Value)
             {
-                Console.WriteLine($"The card is a {guess}");
+                Console.WriteLine($"The card is a {userguess}");
             }
             else
             {
-                Console.WriteLine($"The Card is more than {guess}");
+                Console.WriteLine($"The Card is more than {userguess}");
             }
         }
 
