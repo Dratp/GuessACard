@@ -329,7 +329,7 @@ namespace OOPDay1
                             break;
                         }
                 }
-                Console.WriteLine(win);
+                
             } while (!win && player1.Gold > 0);
             
             if (player1.Gold <= 0)
