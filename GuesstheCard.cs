@@ -137,35 +137,55 @@ namespace OOPDay1
             return correct;
         }
 
-        static void GuessColor(Card secretcard, Player activeplayer, int cost)
+        static bool CheckAfford(Player activeplayer, int cost)
         {
-            activeplayer.Gold = activeplayer.Gold - cost;
-            Console.WriteLine("A hint about color a card can be black or red, guess a color and I will tell you if a card is that color");
-            Console.Write("Red or Black: ");
-            string colorguess = Console.ReadLine();
-            if (secretcard.GuessColor(colorguess))
+            if (activeplayer.Gold >+cost)
             {
-                Console.WriteLine($"The card is {colorguess}");
+                return true;
             }
             else
             {
-                Console.WriteLine($"The card is not {colorguess}");
+                Console.WriteLine("Seems like your ambition does not match your coin!");
+                return false;
             }
+        }
+
+        static void GuessColor(Card secretcard, Player activeplayer, int cost)
+        {
+            if (CheckAfford(activeplayer, cost)) 
+            {
+                activeplayer.Gold = activeplayer.Gold - cost;
+                Console.WriteLine("A hint about color a card can be black or red, guess a color and I will tell you if a card is that color");
+                Console.Write("Red or Black: ");
+                string colorguess = Console.ReadLine();
+                if (secretcard.GuessColor(colorguess))
+                {
+                    Console.WriteLine($"The card is {colorguess}");
+                }
+                else
+                {
+                    Console.WriteLine($"The card is not {colorguess}");
+                }
+            }
+            
         }
 
         static void GuessSuit(Card secretcard, Player activeplayer, int cost)
         {
-            activeplayer.Gold = activeplayer.Gold - cost;
-            Console.WriteLine("Diamonds\nClubs\nHearts\nSpades");
-            Console.Write("Guess a suit and I will tell you if a card is that Suit: ");
-            string suitguess = Console.ReadLine();
-            if (secretcard.GuessSuit(suitguess))
+            if (CheckAfford(activeplayer, cost))
             {
-                Console.WriteLine($"The card is {suitguess}");
-            }
-            else
-            {
-                Console.WriteLine($"The card is not {suitguess}");
+                activeplayer.Gold = activeplayer.Gold - cost;
+                Console.WriteLine("Diamonds\nClubs\nHearts\nSpades");
+                Console.Write("Guess a suit and I will tell you if a card is that Suit: ");
+                string suitguess = Console.ReadLine();
+                if (secretcard.GuessSuit(suitguess))
+                {
+                    Console.WriteLine($"The card is {suitguess}");
+                }
+                else
+                {
+                    Console.WriteLine($"The card is not {suitguess}");
+                }
             }
         }
 
@@ -180,12 +200,16 @@ namespace OOPDay1
 
         static void GuessValue(Card secretcard, Player activeplayer, int cost)
         {
-            activeplayer.Gold = activeplayer.Gold - cost;
-            Console.WriteLine("A hint about the Value of the card... \nA card Can be A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K");
-            Console.Write("Guess a value and I will tell you higher or lower: ");
-            string valueguess = Console.ReadLine();
-            int num = ConvertGuessToValue(valueguess);
-            CompareGuessToValue(num, secretcard, valueguess);
+            if (CheckAfford(activeplayer, cost))
+            {
+                activeplayer.Gold = activeplayer.Gold - cost;
+                Console.WriteLine("A hint about the Value of the card... \nA card Can be A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K");
+                Console.Write("Guess a value and I will tell you higher or lower: ");
+                string valueguess = Console.ReadLine();
+                int num = ConvertGuessToValue(valueguess);
+                CompareGuessToValue(num, secretcard, valueguess);
+            }
+
         }
 
         static int ConvertGuessToValue(string guess)
