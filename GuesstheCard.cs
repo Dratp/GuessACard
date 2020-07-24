@@ -245,7 +245,11 @@ namespace OOPDay1
 
         static void CompareGuessToValue(int guess, Card secretcard, string userguess)
         {
-            if (guess > secretcard.Value)
+            if (guess == 0)
+            {
+                Console.WriteLine($"The card is not {userguess} as that does not even make sense");
+            }
+            else if (guess > secretcard.Value)
             {
                 Console.WriteLine($"The Card is less than {userguess}");
             }
